@@ -5,6 +5,8 @@
 #include "equipements.h"
 #include<QMessageBox>
 #include<QTabWidget>
+#include<QSqlQuery>
+#include<QSqlQueryModel>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,11 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->setupUi(this);
+    ui->statlayout->addWidget(Etmp.stat());
 
 ui->nomEquip->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
 ui->nomEquip_2->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
-ui->DUREE_VIE->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
-ui->DUREE_VIE_2->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
+
 ui->quantite->setValidator(new QIntValidator(1,99, this));
 ui->quantite_2->setValidator(new QIntValidator(1,99, this));
 ui->idSeance->setValidator(new QIntValidator(1,999999, this));
@@ -95,7 +97,7 @@ void MainWindow::on_suppEquip_clicked()
 {
 
         int id=ui->lineEdit_IDS->text().toInt();
-        bool test=Etmp.supprimer(id);
+        bool test=Etmp.verifier(id);
 
         if (id== 0) {
                     QMessageBox::critical(nullptr, QObject::tr("Error"), QObject::tr("Column id is empty or contains invalid option"), QMessageBox::Cancel);
@@ -103,6 +105,7 @@ void MainWindow::on_suppEquip_clicked()
 
         if (test)
              {
+            Etmp.supprimer(id);
             ui->tableView->setModel(Etmp.afficher());
        QMessageBox::information(nullptr ,QObject ::tr ("OK"),
             QObject::tr("suprrimé avec succés\n"
@@ -120,8 +123,9 @@ void MainWindow::on_suppEquip_clicked()
 
 
 void MainWindow::on_btnModifierEquip_clicked()
-{
-    int ID_EQU=ui->ID_EQU_2->text().toInt();
+{  int ID_EQU=ui->ID_EQU_2->text().toInt();
+    bool test=Etmp.verifier(ID_EQU);
+
     int PRIX=ui->prixEquip_2->text().toInt();
     QString DUREE_VIE=ui->DUREE_VIE_2->text();
     int QUANTITE=ui->quantite_2->text().toInt();
@@ -132,7 +136,7 @@ void MainWindow::on_btnModifierEquip_clicked()
            QMessageBox::critical(nullptr, QObject::tr("Error"), QObject::tr("One or more columns are empty or have invalid values"), QMessageBox::Cancel);
            return;
        }
-    if(E.modifier(ID_EQU) )
+    if(E.modifier(ID_EQU) & test )
           {
 
               QMessageBox::information(nullptr,QObject::tr("Ok"),QObject::tr("Modification effectue.\n""Click cancel to exit."),QMessageBox::Cancel);
@@ -146,3 +150,33 @@ void MainWindow::on_btnModifierEquip_clicked()
   }
 
 
+
+void MainWindow::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
+{
+    QString id=ui->lineEdit->text();
+        ui->tableView->setModel(Etmp.rechercher(id));
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->tableView->setModel(Etmp.trier());
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    Equipements E;
+    bool test= E.genererPDFact();
+    if(test){
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                                 QObject::tr("PDF Géneré. \n"
+                                             "click Cancel to exist."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                    QObject::tr("tri non effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
+}

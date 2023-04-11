@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>636</height>
+    <width>1272</width>
+    <height>795</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,12 +19,12 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1011</width>
-      <height>591</height>
+      <width>1251</width>
+      <height>741</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="Ajouter">
      <attribute name="title">
@@ -409,12 +409,77 @@ QPushButton:pressed</string>
      <widget class="QTableView" name="tableView">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>20</x>
         <y>110</y>
-        <width>891</width>
-        <height>391</height>
+        <width>961</width>
+        <height>331</height>
        </rect>
       </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>60</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>460</y>
+        <width>231</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TRIER PAR ORDRE ALPHABETIQUE</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>860</x>
+        <y>40</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Search</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>460</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CONVERTIR EN PDF</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>stat</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>1251</width>
+        <height>681</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="statlayout"/>
      </widget>
     </widget>
    </widget>
@@ -424,7 +489,7 @@ QPushButton:pressed</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>1272</width>
      <height>26</height>
     </rect>
    </property>

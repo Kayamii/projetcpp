@@ -32,6 +32,12 @@ private slots:
 
     void on_btnModifierEquip_clicked();
 
+    void on_lineEdit_cursorPositionChanged(int arg1, int arg2);
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 

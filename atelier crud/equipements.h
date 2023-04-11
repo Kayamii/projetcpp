@@ -4,6 +4,14 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <QSqlQueryModel>
+#include <QChartView>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QTableWidget>
+QT_CHARTS_USE_NAMESPACE
 class Equipements
 {
 public:
@@ -28,6 +36,17 @@ public:
                 QSqlQueryModel *afficher();
                 bool supprimer(int);
                  bool modifier(int);
+                 bool verifier (int id);
+                 QSqlQueryModel *rechercher(QString var);
+                 QSqlQueryModel * trier();
+
+                 bool genererPDFact();
+                 QChartView * stat();
+
+
+
+
+
 private:
                  QString DUREE_VIE, NOMEQUIP;
                      int ID_EQU, QUANTITE, ID_SEANCE, PRIX;
