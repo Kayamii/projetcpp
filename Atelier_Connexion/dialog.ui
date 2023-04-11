@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1022</width>
+    <height>772</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion des Clients</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTabWidget" name="Ajouter">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>911</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(23, 155, 167);</string>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="Ajout">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>50</y>
+        <width>291</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(21, 139, 151);
+color: #b1b1b1;
+color: rgb(0, 0, 0);
+
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="title">
+       <string>Ajouter</string>
+      </property>
+      <widget class="QPushButton" name="pb_ajouter">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>310</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_idc">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>50</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_prenom">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>130</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_email">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>210</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_tel">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>170</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>40</y>
+         <width>161</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Liste des clients</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_nom">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>90</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>    ID Client</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>     NOM</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>130</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>   PRENOM</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>170</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>  NUM_TEL</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>210</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>  EMAIL</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>240</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>RENDEZ_VOUS</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_rdv">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>240</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+     <widget class="QTableView" name="tab_clients">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>391</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(21, 139, 151);
+color: #b1b1b1;
+color: rgb(0, 0, 0);
+
+
+ 
+
+    border-width: 1px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_id_supp">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>100</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>100</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_supprimer">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>150</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="text">
+       <string>supprimer</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_edit_name">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>236</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le__edit_idc">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>320</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>236</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New name</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_update">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>386</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_edit_prenom">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>280</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>280</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New _pren</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>320</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New_ID</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_edit_tel">
+      <property name="geometry">
+       <rect>
+        <x>732</x>
+        <y>241</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_edit_email">
+      <property name="geometry">
+       <rect>
+        <x>732</x>
+        <y>301</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>220</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New tel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>280</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New _email</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_find">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>150</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Find</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>420</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Tri</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_genererPdf">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>420</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Generer Pdf</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_edit_rdv">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>200</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #b1b1b1;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+
+ 
+
+    border-width: 3px;
+
+    border-color: #ffffff;
+
+    border-style: solid;
+
+    border-radius: 10;
+
+
+
+    padding: 3px;
+
+    font-size: 12px;
+
+    padding-left: 5px;
+
+    padding-right: 5px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>210</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>new rdv</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>741</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
+     <widget class="QPushButton" name="Options__pushButton">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>20</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Options</string>
+      </property>
+     </widget>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>29</x>
+        <y>66</y>
+        <width>851</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>849</width>
+         <height>399</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

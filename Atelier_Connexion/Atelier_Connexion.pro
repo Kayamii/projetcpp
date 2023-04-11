@@ -4,7 +4,31 @@
 #
 #-------------------------------------------------
 QT +=sql
+QT += charts
 QT       += core gui sql
+
+
+QT += printsupport
+QT       += core gui charts
+QT +=serialport
+
+QT       += core gui sql printsupport
+
+QT += core gui multimedia multimediawidgets
+
+
+QT       += core gui sql serialport
+
+
+QT += svg
+QT       += core gui sql axcontainer printsupport network serialport multimedia multimediawidgets charts
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
+QT       += core gui sql serialport
+QT       += serialport
+QT       += charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,14 +50,23 @@ CONFIG += c++11
 
 SOURCES += \
     adherent.cpp \
+    arduino.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    qrcode.cpp \
+    qrcodegeneratordemo.cpp \
+    qrcodegeneratorworker.cpp \
+    qrwidget.cpp
 
 HEADERS += \
     adherent.h \
+    arduino.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    qrcode.h \
+    qrcodegeneratorworker.h \
+    qrwidget.h
 
 FORMS += \
         mainwindow.ui
