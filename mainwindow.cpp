@@ -66,7 +66,7 @@ void MainWindow::alwayscheck()
         if (query2.next()) {
             QString prenom = query2.value(0).toString();
             QString nom = query2.value(1).toString();
-            QString message = "Mr/Mme " + prenom + " " + nom +"vous avez une seance de "+query.value(4).toString()+ " dans moins de 10 minutes";
+            QString message = "Mr/Mme " + prenom + " " + nom +" vous avez une seance de "+query.value(4).toString()+ " dans moins de 10 minutes";
             trayIcon->showMessage("New row", message, QSystemTrayIcon::Information, 15000);
         }
     }
@@ -239,7 +239,7 @@ void MainWindow::on_pdf_clicked()
 void MainWindow::on_calendarWidget_clicked(const QDate &date)
 {
     QSqlQuery query,query2;
-    query.prepare("SELECT typee, id_expert FROM seances WHERE datee = :date");
+    query.prepare("SELECT typee, heure FROM seances WHERE datee = :date");
     QString d = date.toString("dd/MM/yyyy");
     std::string ch = d.toStdString().substr(0, 10);
     QString x = QString::fromStdString(ch);
@@ -252,7 +252,7 @@ void MainWindow::on_calendarWidget_clicked(const QDate &date)
     ui->tableView_2->setColumnWidth(0, 130);
     mod->setHeaderData(0,Qt::Horizontal,QObject::tr("type"));
 ui->tableView_2->setColumnWidth(0, 130);
-    mod->setHeaderData(1,Qt::Horizontal,QObject::tr("id_expert"));
+    mod->setHeaderData(1,Qt::Horizontal,QObject::tr("heure"));
 
     ui->tableView_2->setModel(mod);
 

@@ -126,7 +126,7 @@ QPushButton::default{
 
 }
 QPushButton:hover{
-background-color: blue;
+background-color: light green;
 
 }
 QPushButton:pressed{
@@ -134,7 +134,7 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ajouter">
      <attribute name="title">
@@ -332,8 +332,8 @@ QPushButton:pressed{
          <minute>0</minute>
          <second>0</second>
          <year>2023</year>
-         <month>1</month>
-         <day>1</day>
+         <month>4</month>
+         <day>10</day>
         </datetime>
        </property>
        <property name="maximumDateTime">
@@ -352,15 +352,15 @@ QPushButton:pressed{
          <minute>0</minute>
          <second>0</second>
          <year>2023</year>
-         <month>1</month>
-         <day>1</day>
+         <month>4</month>
+         <day>10</day>
         </datetime>
        </property>
        <property name="displayFormat">
         <string notr="true">dd/MM/yyyy</string>
        </property>
        <property name="calendarPopup">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QComboBox" name="type">
@@ -574,8 +574,8 @@ QPushButton:pressed{
          <minute>0</minute>
          <second>0</second>
          <year>2023</year>
-         <month>1</month>
-         <day>1</day>
+         <month>4</month>
+         <day>10</day>
         </datetime>
        </property>
        <property name="maximumDateTime">
@@ -594,8 +594,8 @@ QPushButton:pressed{
          <minute>0</minute>
          <second>0</second>
          <year>2023</year>
-         <month>1</month>
-         <day>1</day>
+         <month>4</month>
+         <day>10</day>
         </datetime>
        </property>
        <property name="displayFormat">
@@ -603,6 +603,13 @@ QPushButton:pressed{
        </property>
        <property name="calendarPopup">
         <bool>true</bool>
+       </property>
+       <property name="date">
+        <date>
+         <year>2023</year>
+         <month>4</month>
+         <day>10</day>
+        </date>
        </property>
       </widget>
       <widget class="QComboBox" name="date_5">
