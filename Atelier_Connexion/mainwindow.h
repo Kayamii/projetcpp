@@ -66,6 +66,8 @@ private slots:
 
 
 
+    void on_image_clicked();
+
 private:
     Ui::MainWindow *ui;
     Adherent Etmp;

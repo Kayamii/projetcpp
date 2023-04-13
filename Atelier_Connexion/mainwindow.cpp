@@ -12,10 +12,9 @@
 #include <QTextStream>
 #include <QTextDocument>
 #include <QPainter>
+#include <QSystemTrayIcon>
 
 
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 #include <QMessageBox>
 #include <QIntValidator>
@@ -126,7 +125,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    this->setStyleSheet("background-color: #E9F8F9;");
+    //this->setStyleSheet("background-color: #C4A484;");
 
     ui->le_type->setValidator(new QIntValidator(1,4, this));
     ui->le_age->setValidator(new QIntValidator(1,18, this));
@@ -147,6 +146,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_sexe_2->setValidator(new QRegExpValidator(QRegExp("[fmFM]"), this));
     ui->tableView->setModel(Etmp.afficher());
     ui->statlayout->addWidget(Etmp.stat());
+
+
 }
 
 MainWindow::~MainWindow()
@@ -178,6 +179,12 @@ void MainWindow::on_pb_ajouter_clicked()
        ui->tableView_2->setModel(Etmp.affichert1());
        ui->tableView_3->setModel(Etmp.affichert2());
        ui->tableView_4->setModel(Etmp.affichert3());
+       QLayoutItem* item;
+                 while ((item = ui->statlayout->takeAt(0)) != nullptr) {
+                     delete item->widget();
+                     delete item;
+                 }
+                 ui->statlayout->addWidget(Etmp.stat());
 
 
 
@@ -226,6 +233,13 @@ void MainWindow::on_pb_ajouter_2_clicked()
         ui->tableView_2->setModel(Etmp.affichert1());
         ui->tableView_3->setModel(Etmp.affichert2());
         ui->tableView_4->setModel(Etmp.affichert3());
+        QLayoutItem* item;
+                  while ((item = ui->statlayout->takeAt(0)) != nullptr) {
+                      delete item->widget();
+                      delete item;
+                  }
+                  ui->statlayout->addWidget(Etmp.stat());
+
 
 }
 
@@ -347,6 +361,13 @@ void MainWindow::on_deleteb2_clicked()
         ui->tableView_2->setModel(Etmp.affichert1());
         ui->tableView_3->setModel(Etmp.affichert2());
         ui->tableView_4->setModel(Etmp.affichert3());
+        QLayoutItem* item;
+                  while ((item = ui->statlayout->takeAt(0)) != nullptr) {
+                      delete item->widget();
+                      delete item;
+                  }
+                  ui->statlayout->addWidget(Etmp.stat());
+
 
    QMessageBox::information(nullptr ,QObject ::tr ("OK"),
         QObject::tr("suprrimé avec succés\n"
@@ -438,3 +459,35 @@ void MainWindow::on_l2_2_clicked()
 }
 
 
+
+void MainWindow::on_image_clicked()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+    db.setDatabaseName("test-bd");
+    db.setUserName("maguko");//inserer nom de l'utilisateur
+    db.setPassword("maguko");//inserer mot de passe de cet utilisateur
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp)"));
+
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    QImage image(fileName);
+    if (image.isNull()) {
+        QMessageBox::information(this, tr("Error"), tr("Selected file is not an image."));
+        return;
+    }
+
+    // Assuming you have a QSqlDatabase object named "db" that is already connected to your database
+    QSqlQuery query(db);
+    query.prepare("INSERT INTO Equippements (image) VALUES (:image)");
+    query.bindValue(":image", image);
+
+    if (!query.exec()) {
+        QMessageBox::information(this, tr("Error"), tr("Failed to insert image into database: %1").arg(query.lastError().text()));
+        return;
+    }
+
+    QMessageBox::information(this, tr("Success"), tr("Image inserted into database successfully."));
+}
