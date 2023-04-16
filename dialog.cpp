@@ -280,7 +280,7 @@ void Dialog::on_stats_clicked()
            QChartView *chartView;
            chartView = new QChartView(chart,ui->graphicsView);
            chartView->setRenderHint(QPainter::Antialiasing);
-           chartView->setMinimumSize(400,200);
+           chartView->setMinimumSize(400,400);
            chartView->show();
 }
 
