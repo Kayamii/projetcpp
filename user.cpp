@@ -242,13 +242,14 @@ void User::envoyer_mail(QString destination) {
 
 void User::generate_pdf()
   {
-      QPdfWriter pdf("C:/Users/Mohamed/Desktop/results");
+
+    QPdfWriter pdf("C:/Users/Mohamed/Desktop/results/exoprt.pdf");
       QPainter painter(&pdf);
       int i = 4000;
       painter.setPen(Qt::red);
       // Détermine la taille maximale de police pour que le texte rentre dans la page
       int fontSize = 35;
-      while (painter.fontMetrics().width("GESTION OPPORTUNITE") > pdf.width())
+      while (painter.fontMetrics().width("GESTION Admins") > pdf.width())
       {
           fontSize--;
           painter.setFont(QFont("Arial", fontSize));
@@ -265,10 +266,10 @@ void User::generate_pdf()
       painter.drawText(2390,3300,"prenom");
       painter.drawText(3590,3300,"cin");
       painter.drawText(5290,3300,"email");
-      //painter.drawText(6790,3300,"role");
-      //painter.drawText(8490,3300,"mdp");
+      painter.drawText(6790,3300,"role");
+      painter.drawText(8490,3300,"mdp");
       QSqlQuery query;
-      query.prepare("SELECT * from ADMINS");
+      query.prepare("SELECT * FROM ADMINS");
       query.exec();
       while (query.next())
       {
@@ -277,12 +278,12 @@ void User::generate_pdf()
                 painter.drawText(2400,i,query.value(2).toString());
                 painter.drawText(3600,i,query.value(3).toString());
                 painter.drawText(5300,i,query.value(4).toString());
-                //painter.drawText(6800,i,query.value(6).toString());
-                //painter.drawText(8500,i,query.value(7).toString());
+                painter.drawText(6800,i,query.value(5).toString());
+                painter.drawText(8500,i,query.value(6).toString());
 
                 // Détermine la taille maximale de police pour que le texte rentre dans la page
                 fontSize = 11;
-                while (painter.fontMetrics().width(query.value(7).toString()) > pdf.width() - 7700) {
+                while (painter.fontMetrics().width(query.value(6).toString()) > pdf.width() - 7700) {
                     fontSize--;
                     painter.setFont(QFont("Arial", fontSize));
                 }
