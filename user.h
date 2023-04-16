@@ -34,6 +34,7 @@ public:
     QSqlQueryModel *afficher_id_croissant();
     bool comparerEmailMotDePasse(const QString& email, const QString& motDePasse); 
     void envoyer_mail(QString);
+    void generate_pdf();
 
 
 private:

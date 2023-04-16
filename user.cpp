@@ -4,6 +4,16 @@
 #include <QObject>
 #include <QMessageBox>
 #include <QAxObject>
+#include <QPdfWriter>
+#include <QtCore>
+#include <QtGui>
+#include <QtSql>
+#include <QFileDialog>
+#include <QPrintDialog>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFont>
+#include <QSqlQuery>
 
 User::User()
 {
@@ -229,6 +239,58 @@ void User::envoyer_mail(QString destination) {
 
  }
 
+
+void User::generate_pdf()
+  {
+      QPdfWriter pdf("C:/Users/Mohamed/Desktop/results");
+      QPainter painter(&pdf);
+      int i = 4000;
+      painter.setPen(Qt::red);
+      // Détermine la taille maximale de police pour que le texte rentre dans la page
+      int fontSize = 35;
+      while (painter.fontMetrics().width("GESTION OPPORTUNITE") > pdf.width())
+      {
+          fontSize--;
+          painter.setFont(QFont("Arial", fontSize));
+      }
+      painter.setFont(QFont("Arial", fontSize));
+      painter.drawText(1100,1200,"GESTION Admins");
+      painter.setPen(Qt::black);
+      painter.setFont(QFont("Arial",12));
+      painter.drawRect(1000,100,7300,2600);
+      painter.drawRect(50,3000,9600,500);
+      painter.setFont(QFont("Arial",11));
+      painter.drawText(90,3300,"id");
+      painter.drawText(1000,3300,"nom");
+      painter.drawText(2390,3300,"prenom");
+      painter.drawText(3590,3300,"cin");
+      painter.drawText(5290,3300,"email");
+      //painter.drawText(6790,3300,"role");
+      //painter.drawText(8490,3300,"mdp");
+      QSqlQuery query;
+      query.prepare("SELECT * from ADMINS");
+      query.exec();
+      while (query.next())
+      {
+                painter.drawText(100,i,query.value(0).toString());
+                painter.drawText(550,i,query.value(1).toString());
+                painter.drawText(2400,i,query.value(2).toString());
+                painter.drawText(3600,i,query.value(3).toString());
+                painter.drawText(5300,i,query.value(4).toString());
+                //painter.drawText(6800,i,query.value(6).toString());
+                //painter.drawText(8500,i,query.value(7).toString());
+
+                // Détermine la taille maximale de police pour que le texte rentre dans la page
+                fontSize = 11;
+                while (painter.fontMetrics().width(query.value(7).toString()) > pdf.width() - 7700) {
+                    fontSize--;
+                    painter.setFont(QFont("Arial", fontSize));
+                }
+
+                painter.setFont(QFont("Arial", fontSize));
+                i = i + 500;
+            }
+        }
 
 
 

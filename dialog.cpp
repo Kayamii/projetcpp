@@ -250,9 +250,9 @@ void Dialog::on_stats_clicked()
            qreal tot=0,c1=0,c2=0;
            q1.prepare("SELECT id FROM ADMINS");
            q1.exec();
-           q2.prepare("SELECT id FROM ADMINS WHERE role='exp'");
+           q2.prepare("SELECT id FROM ADMINS WHERE role='expert'");
            q2.exec();
-           q3.prepare("SELECT id FROM ADMINS WHERE role='emp'");
+           q3.prepare("SELECT id FROM ADMINS WHERE role='employee'");
            q3.exec();
            while (q1.next()){tot++;}
            while (q2.next()){c1++;}
@@ -286,11 +286,10 @@ void Dialog::on_stats_clicked()
 
 void Dialog::on_imp_clicked()
 {
-    QPrinter printer;
-                           printer.setPrinterName("diserter printer name");
-                           QPrintDialog dialog(&printer,this);
-                           if(dialog.exec()==QDialog::Rejected)return;
-                           ui->tab_users->render(&printer);
+
+    U.generate_pdf();
+
+
 }
 
 void Dialog::on_pushButton_4_clicked()
