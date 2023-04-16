@@ -50,7 +50,7 @@ void Dialog::on_pushButton_clicked()
    QString prenom=ui->le_prenom->text();
    QString cin=ui->le_cin->text();
    QString email=ui->le_email->text();
-   QString role=ui->le_role->text();
+   QString role=ui->comboBox_role->currentText();
    QString mdp=ui->le_mdp->text();
 
    /*User U(id,nom,prenom,cin,email,role,mdp);
@@ -168,7 +168,7 @@ void Dialog::on_pushButton_5_clicked()
     QString prenom=ui->le_prenom->text();
     QString cin=ui->le_cin->text();
     QString email=ui->le_email->text();
-    QString role=ui->le_role->text();
+    QString role=ui->comboBox_role->currentText();
     QString mdp=ui->le_mdp->text();
 
     U.setid(ui->le_id->text().toInt());

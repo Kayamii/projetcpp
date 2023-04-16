@@ -350,9 +350,9 @@ QPushButton:pressed</string>
    <widget class="QComboBox" name="comboBox_role">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>216</y>
-      <width>71</width>
+      <x>380</x>
+      <y>220</y>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
