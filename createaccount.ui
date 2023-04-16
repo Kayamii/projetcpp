@@ -347,6 +347,31 @@ QPushButton:pressed</string>
      <string>return</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox_role">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>216</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>choisir</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>expert</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>employee</string>
+     </property>
+    </item>
+   </widget>
   </widget>
  </widget>
  <resources/>

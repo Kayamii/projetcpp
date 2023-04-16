@@ -43,7 +43,7 @@ void createaccount::on_pushButton_clicked()
    QString prenom=ui->le_prenom->text();
    QString cin=ui->le_cin->text();
    QString email=ui->le_email->text();
-   QString role=ui->le_role->text();
+   QString role=ui->comboBox_role->currentText();
    QString mdp=ui->le_mdp->text();
 
    /*User U(id,nom,prenom,cin,email,role,mdp);
@@ -67,6 +67,13 @@ void createaccount::on_pushButton_clicked()
            QRegularExpressionMatch match = emailRegex.match(ui->le_email->text());
            bool isValid = match.hasMatch();
            bool cinvalid =true;
+           bool rolevalid =false;
+
+               if(role!="choisir")
+                   rolevalid =true;
+
+
+
            if(cin.size()!=8)
            {
                cinvalid=false;
@@ -80,7 +87,7 @@ void createaccount::on_pushButton_clicked()
                                        "Click Cancel to exit."), QMessageBox::Cancel);
            } else
            {
-           if (isValid&&cinvalid) {
+           if (isValid&&cinvalid&&rolevalid) {
                User U(id,nom,prenom,cin,email,role,mdp);
                   bool test=U.ajouter();
 
@@ -97,6 +104,7 @@ void createaccount::on_pushButton_clicked()
                               QObject::tr("Task Failed.\n"
                                           "Click Cancel to exit."), QMessageBox::Cancel);
            }
+
            else if(isValid==false) {
                QMessageBox::critical(nullptr, QObject::tr("Email"),
                            QObject::tr("Wrong Email.\n"
@@ -109,6 +117,14 @@ void createaccount::on_pushButton_clicked()
                                                              "Click Cancel to exit."), QMessageBox::Cancel);
 
            }
+            else if(rolevalid==false)
+           {
+                          QMessageBox::critical(nullptr, QObject::tr("role"),
+                                                            QObject::tr("choose role please .\n"
+                                                                        "Click Cancel to exit."), QMessageBox::Cancel);
+
+                      }
+
 
 
 

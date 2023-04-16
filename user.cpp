@@ -35,6 +35,11 @@ void User::setcin(QString cin){this->cin=cin;}
 void User::setemail(QString email){this->email=email;}
 void User::setrole(QString role){this->role=role;}
 void User::setmdp(QString mdp){this->mdp=mdp;}
+
+
+
+
+
 bool User::ajouter(){
 
 
