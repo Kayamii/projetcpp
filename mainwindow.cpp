@@ -1,12 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialog.h"
+#include "expert.h"
 #include "dialog_mdp.h"
 #include "createaccount.h"
 #include "user.h"
 #include "QDebug"
 #include "QMessageBox"
 #include "QSystemTrayIcon"
+#include <QSqlQuery>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -56,8 +58,21 @@ void MainWindow::on_pushButton_clicked()
         bool result = U.comparerEmailMotDePasse(email, motDePasse);
         if (result) {
                 qDebug() << "Connexion réussie";
+                QSqlQuery query;
+                QString role ;
+                query.prepare("SELECT role FROM ADMINS WHERE email = ? AND mdp = ?"); // Remplacez "utilisateurs" par le nom de votre propre table d'utilisateurs
+                    query.bindValue(0, role);
+
+
+                if(role=="employee")
+                {
                 Dialog w;
-                w.exec();
+                w.exec();}
+                else
+                {
+                expert e;
+                e.exec();}
+
 
             } else {
                 qDebug() << "Email ou mot de passe invalides";
