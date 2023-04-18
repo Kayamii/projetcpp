@@ -1,8 +1,34 @@
-QT       += core gui
-QT += sql
+QT +=sql
+QT += charts
+QT += core gui sql
+
+
+QT += printsupport
+QT       += core gui charts
+QT +=serialport
+
+QT       += core gui sql printsupport
+
+QT += core gui multimedia multimediawidgets
+
+
+QT += core gui sql serialport
+
+
+QT += svg
+QT += core gui sql axcontainer printsupport network serialport multimedia multimediawidgets charts
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
+QT       += core gui sql serialport
+QT       += serialport
+QT       += charts
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
+
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings

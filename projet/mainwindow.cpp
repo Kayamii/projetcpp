@@ -6,6 +6,7 @@
 #include "expert.h"
 #include <QVariant>
 #include <cstring>
+#include <QSqlQuery>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,14 +15,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(ex.listExpert());
-
+    ui->statlayout->addWidget(ex.stat());
 
    // ui->prenom->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
     ui->age->setValidator(new QIntValidator(27,60, this));
 
     ui->pushButton_2->setVisible(false);
 
-    connect(ui->id,SIGNAL(editingFinished()),this,SLOT(testInt()));
+    connect(ui->id,SIGNAL(editingFinish
+
+                          ed()),this,SLOT(testInt()));
 
     // Connexion du signal textChanged() du QLineEdit à la slot checkInput()
     connect(ui->prenom, SIGNAL(textChanged(QString)), this, SLOT(checkInput(QString))); //+reste
@@ -147,7 +150,7 @@ void MainWindow::checkInputt(QString text)
             }
 }
 
-
+//ajouter
 void MainWindow::on_pushButton_clicked()
 {
     int id=ui->id->text().toInt();
@@ -166,6 +169,7 @@ void MainWindow::on_pushButton_clicked()
            QMessageBox::information(nullptr, QObject::tr("database is open"),
                        QObject::tr("add successful.\n"
                                    "Click Cancel to exit."), QMessageBox::Cancel);
+           ex.writeLog(ui->id->text().toInt(),"expert has been added by id :");
 
     }
        else
@@ -185,6 +189,8 @@ void MainWindow::on_supp_clicked()
            QMessageBox::information(nullptr, QObject::tr("database is open"),
                        QObject::tr("Deleted successfully .\n"
                                    "Click Cancel to exit."), QMessageBox::Cancel);
+           ex.writeLog(ui->id->text().toInt(),"expert has been deleteed by id :");
+
 
     }
        else
@@ -259,11 +265,111 @@ void MainWindow::on_pushButton_2_clicked()
               QMessageBox::information(nullptr, QObject::tr("database is open"),
                           QObject::tr("Updated successfully .\n"
                                       "Click Cancel to exit."), QMessageBox::Cancel);
+              ex.writeLog(ui->id->text().toInt(),"expert has been updated succesfully :");
+
 
        }
           else
               QMessageBox::critical(nullptr, QObject::tr("database is not open"),
                           QObject::tr("Update failed.\n"
                                       "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+
+void MainWindow::on_id_2_cursorPositionChanged(int arg1, int arg2)
+{
+        QString id=ui->id_2->text();
+        ui->tableView->setModel(ex.rechercher(id));
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->tableView->setModel(ex.trier());
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    expert e;
+bool test= e.genererPDFact();
+if(test){
+    QMessageBox::information(nullptr,QObject::tr("OK"),
+                             QObject::tr("PDF Géneré. \n"
+                                         "click Cancel to exist."),QMessageBox::Cancel);
+
+}
+else
+{
+    QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                QObject::tr("tri non effectué.\n"
+                            "Click Cancel to exit."), QMessageBox::Cancel);
+}
+}
+
+/*void MainWindow::on_pushButton_7_clicked()
+{
+    QSqlQuery query;
+    int id=ui->sort->text().toInt();
+    bool test=ex.verifiertype(id);
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QString queryString = "SELECT * FROM Adherents WHERE idexpert = :id";
+
+    query.prepare(queryString);
+
+    query.bindValue(":id", id);
+    if (id==0) {
+      QMessageBox::critical(nullptr, QObject::tr("Error"), QObject::tr("Column is empty !"), QMessageBox::Cancel);
+      return;
+  }
+    if (test){
+    if (query.exec()) {
+        model->setQuery(query);
+        ui->tableView_3->setModel(model);
+    }}
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                    QObject::tr("type non trouvé.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}*/
+
+void MainWindow::on_comboBox_2_currentTextChanged(const QString &arg1)
+{
+        if(arg1=="1")
+              ui->tableView_3->setModel(ex.listAdherants(1));
+        else if(arg1=="2")
+            ui->tableView_3->setModel(ex.listAdherants(2));
+        else if (arg1=="3")
+            ui->tableView_3->setModel(ex.listAdherants(3));
+        else // cas: par defaut->vider table view
+        {
+           QSqlQueryModel *emptyModel = new QSqlQueryModel();
+           emptyModel->clear();
+           ui->tableView_3->setModel(emptyModel);
+        }
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    expert e;
+        bool test= e.genererPDFact();
+        if(test){
+            QMessageBox::information(nullptr,QObject::tr("OK"),
+                                     QObject::tr("PDF Géneré. \n"
+                                                 "click Cancel to exist."),QMessageBox::Cancel);
+
+        }
+        else
+        {
+            QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                        QObject::tr("tri non effectué.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+
 
 }

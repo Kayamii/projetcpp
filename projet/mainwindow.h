@@ -1,8 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <expert.h>
+#include <string>
 #include <QMainWindow>
 #include <QtWidgets> //librairie a inclure
+#include <QSqlRecord>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,6 +33,20 @@ private slots:
     void on_tableView_doubleClicked(const QModelIndex &index);
 
     void on_pushButton_2_clicked();
+
+    void on_id_2_cursorPositionChanged(int arg1, int arg2);
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
+    //void on_pushButton_7_clicked();
+
+    void on_comboBox_2_currentTextChanged(const QString &arg1);
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
 
 private:
     expert ex ;
