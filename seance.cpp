@@ -193,10 +193,10 @@ QChartView * Seance::stats()
 
     QSqlQuery query,query2;
 
-    query.prepare("SELECT typee FROM seances WHERE typee='sport' ");
+    query.prepare("SELECT typee FROM seances WHERE typee='consultation' ");
     query.exec();
 
-    query2.prepare("SELECT typee FROM seances WHERE typee='consultation'");
+    query2.prepare("SELECT typee FROM seances WHERE typee='sport'");
     query2.exec();
 
     while(query2.next())
