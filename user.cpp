@@ -14,6 +14,11 @@
 #include <QPainter>
 #include <QFont>
 #include <QSqlQuery>
+#include "verification.h"
+
+#include <iostream>
+#include <cstdlib> // pour la fonction rand
+#include <ctime> // pour initialiser le générateur de nombres aléatoires
 
 User::User()
 {
@@ -214,7 +219,7 @@ bool User::comparerEmailMotDePasse(const QString& email, const QString& motDePas
 
 
 
-void User::envoyer_mail(QString destination) {
+QString User::envoyer_mail(QString destination) {
      qDebug() << "test test";
      QAxObject* outlook = new QAxObject("Outlook.Application");
      QSqlQuery query;
@@ -228,14 +233,21 @@ void User::envoyer_mail(QString destination) {
           {
              mdp = query.value(0).toString();
          }
+     std::srand(std::time(0));
+     int nombreAleatoire = std::rand() % 900 + 100;
+     QString monQString = QString::number(nombreAleatoire);
+
 
      if (!outlook->isNull()) {
          QAxObject* mail = outlook->querySubObject("CreateItem(int)", 0);
          mail->setProperty("To", destination);
          mail->setProperty("Subject", "mot de passe oublier");
-         mail->setProperty("Body", "Bonjour M./Mme. "",\n\nVoici votre mot de passe :\n"+mdp+"\n");
+         mail->setProperty("Body", "Bonjour M./Mme. "",\n\nVoici votre code de verification :\n"+monQString+"\n");
          mail->dynamicCall("Send()");
      }
+
+
+    return monQString;
 
  }
 
@@ -295,7 +307,35 @@ void User::generate_pdf()
 
 
 
+bool User::comparerEmail(const QString& email) {
+     QSqlQuery query;
+     query.prepare("SELECT email FROM ADMINS WHERE email = ?"); // Remplacez "utilisateurs" par le nom de votre propre table d'utilisateurs
+         query.bindValue(0, email);
 
+
+
+        if (!query.exec()) {
+                 qWarning() << "Erreur lors de l'exécution de la requête SQL:"/* << query.lastError().text()*/;
+                 return false;
+             }
+
+             // Vérifier si la requête a renvoyé un résultat
+             if (query.next()) {
+                 qDebug() << "Email valides.";
+                 QMessageBox::information(nullptr, QObject::tr("Add"),
+                             QObject::tr("Email\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+                 return true;
+             } else {
+                 qDebug() << "Email invalides.";
+                 QMessageBox::information(nullptr, QObject::tr("Add"),
+                             QObject::tr("Email invalides..\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+                 return false;
+             }
+
+
+}
 
 
 

@@ -12,8 +12,12 @@ class mdp : public QDialog
     Q_OBJECT
 
 public:
+    QString mm;
     explicit mdp(QWidget *parent = nullptr);
     ~mdp();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::mdp *ui;
