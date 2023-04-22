@@ -38,6 +38,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_idimage_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::MainWindow *ui;
 
