@@ -22,9 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->pushButton_2->setVisible(false);
 
-    connect(ui->id,SIGNAL(editingFinish
-
-                          ed()),this,SLOT(testInt()));
+    connect(ui->id,SIGNAL(editingFinished()),this,SLOT(testInt()));
 
     // Connexion du signal textChanged() du QLineEdit à la slot checkInput()
     connect(ui->prenom, SIGNAL(textChanged(QString)), this, SLOT(checkInput(QString))); //+reste

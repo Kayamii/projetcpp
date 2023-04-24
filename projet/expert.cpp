@@ -207,7 +207,7 @@ expert::expert (int id , QString prenom, QString nom,QString specialite,QString 
           series->append("DES EXPERTS QUI ONT + 20 ans ", row_count);
           QChart *chart = new QChart();
           chart->addSeries(series);
-          chart->setTitle("Statistique selon le sexe :");
+          chart->setTitle("Statistique selon l'age :");
           chart->legend()->setAlignment(Qt::AlignRight);
           chart->legend()->setBackgroundVisible(true);
           chart->legend()->setBrush(QBrush(QColor(128, 128, 128, 128)));
@@ -224,7 +224,7 @@ expert::expert (int id , QString prenom, QString nom,QString specialite,QString 
      {
 
          QSqlQuery query2;
-         query2.prepare("select * from adherents where idexpert=:id");
+         query2.prepare("select * from ADHERENTS where id=:id");
          query2.bindValue(":id",id);
          bool test=(query2.exec()) && (query2.next());
          return test;
@@ -236,7 +236,7 @@ expert::expert (int id , QString prenom, QString nom,QString specialite,QString 
          QSqlQueryModel *model = new QSqlQueryModel();
          QSqlQuery q;
 
-         q.prepare("SELECT id, CASE :type WHEN 1 THEN 'medecin' WHEN 2 THEN 'coach' ELSE 'psychologue' END AS type,nom,prenom,sexe FROM adherents where type=:type;");
+         q.prepare("SELECT id, CASE type WHEN 1 THEN 'medecin' WHEN 2 THEN 'coach' ELSE 'psychologue' END AS type,nom,prenom,sexe FROM adherents where type=:type");
          q.bindValue(":type",type);
          q.exec();
          model->setQuery(q);
