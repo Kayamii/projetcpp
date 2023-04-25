@@ -337,6 +337,17 @@ bool User::comparerEmail(const QString& email) {
 
 }
 
-
+QString User::chercherRole(QString email, QString motDePasse) {
+    QSqlQuery query;
+    query.prepare("SELECT role FROM ADMINS WHERE email = :email AND mdp = :motDePasse");
+    query.bindValue(":email", email);
+    query.bindValue(":motDePasse", motDePasse);
+    if (query.exec() && query.next()) {
+        return query.value("role").toString();
+    }
+    else {
+        return "";
+    }
+}
 
 

@@ -1,5 +1,5 @@
-#include "expert.h"
-#include "ui_expert.h"
+#include "employe.h"
+#include "ui_employe.h"
 #include "dialog.h"
 #include "ui_dialog.h"
 #include "user.h"
@@ -23,20 +23,22 @@ QT_CHARTS_USE_NAMESPACE
 #include <QtPrintSupport/QtPrintSupport>
 
 
-
-expert::expert(QWidget *parent) :
+employe::employe(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::expert)
+    ui(new Ui::employe)
 {
     ui->setupUi(this);
 }
 
-expert::~expert()
+employe::~employe()
 {
     delete ui;
 }
 
-void expert::on_stats_clicked()
+
+
+
+void employe::on_stats_clicked()
 {
     QSqlQuery q1,q2,q3;
 
@@ -77,7 +79,10 @@ void expert::on_stats_clicked()
            chartView->show();
 }
 
-void expert::on_imp_clicked()
+
+
+
+void employe::on_imp_clicked()
 {
 
     U.generate_pdf();
@@ -85,12 +90,12 @@ void expert::on_imp_clicked()
 
 }
 
-void expert::on_rech_textChanged(const QString &arg1)
+void employe::on_rech_textChanged(const QString &arg1)
 {
 ui->tab_users->setModel(U.afficher_search_result(ui->rech->text() ));
 }
 
-void expert::on_tri_currentIndexChanged(const QString &arg1)
+void employe::on_tri_currentIndexChanged(const QString &arg1)
 {
     if(ui->tri->currentText()=="id ↓"){ ui->tab_users->setModel(U.afficher_id_decroissant());}
         if(ui->tri->currentText()=="id ↑"){ ui->tab_users->setModel(U.afficher_id_croissant());}
@@ -98,7 +103,7 @@ void expert::on_tri_currentIndexChanged(const QString &arg1)
 }
 
 
-void expert::on_pushButton_2_clicked()
+void employe::on_pushButton_2_clicked()
 {
     ui->tab_users->setModel(U.afficher());
 

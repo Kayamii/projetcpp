@@ -1,21 +1,20 @@
-#ifndef EXPERT_H
-#define EXPERT_H
+#ifndef EMPLOYE_H
+#define EMPLOYE_H
 
 #include <QDialog>
 #include"user.h"
 
 namespace Ui {
-class expert;
+class employe;
 }
 
-class expert : public QDialog
+class employe : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit expert(QWidget *parent = nullptr);
-    ~expert();
-
+    explicit employe(QWidget *parent = nullptr);
+    ~employe();
 
 private slots:
     void on_pushButton_2_clicked();
@@ -24,10 +23,9 @@ private slots:
     void on_stats_clicked();
     void on_imp_clicked();
 
-
 private:
-    Ui::expert *ui;
+    Ui::employe *ui;
     User U;
 };
 
-#endif // EXPERT_H
+#endif // EMPLOYE_H

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>expert</class>
- <widget class="QDialog" name="expert">
+ <class>employe</class>
+ <widget class="QDialog" name="employe">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1068</width>
-    <height>636</height>
+    <width>1042</width>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>0</y>
      <width>1021</width>
      <height>591</height>

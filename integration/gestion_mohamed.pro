@@ -24,6 +24,7 @@ SOURCES += \
     createaccount.cpp \
     dialog.cpp \
     dialog_mdp.cpp \
+    employe.cpp \
     expert.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     createaccount.h \
     dialog.h \
     dialog_mdp.h \
+    employe.h \
     expert.h \
     mainwindow.h \
     mdp.h \
@@ -46,6 +48,7 @@ FORMS += \
     createaccount.ui \
     dialog.ui \
     dialog_mdp.ui \
+    employe.ui \
     expert.ui \
     mainwindow.ui \
     mdp.ui \

@@ -36,6 +36,7 @@ public:
     QString envoyer_mail(QString);
     void generate_pdf();
     bool comparerEmail(const QString& email);
+    QString chercherRole(QString email, QString motDePasse);
 
 
 private:

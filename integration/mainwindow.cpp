@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialog.h"
 #include "expert.h"
+#include "employe.h"
 #include "dialog_mdp.h"
 #include "createaccount.h"
 #include "user.h"
@@ -60,9 +61,7 @@ void MainWindow::on_pushButton_clicked()
                 qDebug() << "Connexion réussie";
                 QSqlQuery query;
                 QString role ;
-                query.prepare("SELECT role FROM ADMINS WHERE email = ? AND mdp = ?"); // Remplacez "utilisateurs" par le nom de votre propre table d'utilisateurs
-                    query.bindValue(0, role);
-
+                role = U.chercherRole(email, motDePasse);
 
                 if(role=="employee")
                 {
@@ -70,7 +69,7 @@ void MainWindow::on_pushButton_clicked()
                 w.exec();}
                 else
                 {
-                expert e;
+                employe e;
                 e.exec();}
 
 
