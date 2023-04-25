@@ -60,8 +60,10 @@ void MainWindow::on_pushButton_clicked()
                 qDebug() << "Connexion réussie";
                 QSqlQuery query;
                 QString role ;
-                query.prepare("SELECT role FROM ADMINS WHERE email = ? AND mdp = ?"); // Remplacez "utilisateurs" par le nom de votre propre table d'utilisateurs
-                    query.bindValue(0, role);
+
+
+
+            role = U.chercherRole(email, motDePasse);
 
 
                 if(role=="employee")
