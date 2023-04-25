@@ -39,3 +39,8 @@ void mdp::on_pushButton_clicked()
 
 
 }
+
+void mdp::on_pushButton_4_clicked()
+{
+    close();
+}

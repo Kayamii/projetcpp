@@ -33,3 +33,8 @@ void verification::on_pushButton_clicked()
 
     }
 }
+
+void verification::on_pushButton_4_clicked()
+{
+    close();
+}
