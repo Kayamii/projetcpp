@@ -360,14 +360,14 @@ void MainWindow::on_pushButton_8_clicked()
         bool test= e.genererPDFact();
         if(test){
             QMessageBox::information(nullptr,QObject::tr("OK"),
-                                     QObject::tr("text Géneré. \n"
+                                     QObject::tr("PDF Géneré. \n"
                                                  "click Cancel to exist."),QMessageBox::Cancel);
 
         }
         else
         {
             QMessageBox::critical(nullptr, QObject::tr("not OK"),
-                        QObject::tr(" non effectué.\n"
+                        QObject::tr("tri non effectué.\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
         }
 

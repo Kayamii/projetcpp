@@ -134,7 +134,7 @@ expert::expert (int id , QString prenom, QString nom,QString specialite,QString 
 
      bool expert::genererPDFact()
             {
-                QPdfWriter pdf("C:/Users/Mohamed/Desktop/results/emna.pdf");
+                QPdfWriter pdf("C:/Users/emna/Desktop/projet/expert.pdf");
                 QPainter painter(&pdf);
                int i = 4000;
 
@@ -236,7 +236,7 @@ expert::expert (int id , QString prenom, QString nom,QString specialite,QString 
          QSqlQueryModel *model = new QSqlQueryModel();
          QSqlQuery q;
 
-         q.prepare("SELECT id, CASE type WHEN 1 THEN 'medecin' WHEN 2 THEN 'coach' ELSE 'psychologue' END AS type,nom,prenom,sexe FROM adherents where type=:type");
+         q.prepare("SELECT id, CASE :type WHEN 1 THEN 'medecin' WHEN 2 THEN 'coach' ELSE 'psychologue' END AS type,nom,prenom,sexe FROM adherents where type=:type;");
          q.bindValue(":type",type);
          q.exec();
          model->setQuery(q);
@@ -247,7 +247,7 @@ expert::expert (int id , QString prenom, QString nom,QString specialite,QString 
      void expert::writeLog(int id,QString message)
      {
          // Ouverture du fichier en mode écriture à la fin du fichier
-         QFile file("C:/Users/Mohamed/Desktop/results/emna.txt");
+         QFile file("F:/code emna/emna/txt.txt");
          if (!file.open(QIODevice::Append | QIODevice::Text))
              return;
 
