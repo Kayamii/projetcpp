@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+#include "client.h"
+
+client::client()
+{cin="";
+ prenom="";
+    nom="";}
+
+    void client::setcin(QString n){cin=n;}
+    void client::setprenom(QString n){prenom=n;}
+    void client::setspecialite(QString n){specialite=n;}
+    void client::setnom(QString n){nom=n;}
+    QString client::getcin(){return cin;}
+    QString client::getprenom(){return prenom;}
+    QString client::getnom(){return nom;}
+    QString client::getspecialite(){return specialite;}
+
+=======
+#include "client.h"
+
+client::client()
+{cin="";
+ prenom="";
+    nom="";}
+
+    void client::setcin(QString n){cin=n;}
+    void client::setprenom(QString n){prenom=n;}
+    void client::setspecialite(QString n){specialite=n;}
+    void client::setnom(QString n){nom=n;}
+    QString client::getcin(){return cin;}
+    QString client::getprenom(){return prenom;}
+    QString client::getnom(){return nom;}
+    QString client::getspecialite(){return specialite;}
+
+>>>>>>> c8f612c71c066dc8965fe32616aa55601a129795
