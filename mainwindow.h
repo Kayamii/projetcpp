@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <string>
 #include <QSystemTrayIcon>
+#include "arduino.h"
 using namespace std;
 
 namespace Ui {
@@ -44,10 +45,11 @@ void alwayscheck();
     void on_pdf_clicked();
 
     void on_calendarWidget_clicked(const QDate &date);
-
+void update_label();
 private:
     Ui::MainWindow *ui;
    Seance ss;
+   arduino A;
 };
 
 #endif // MAINWINDOW_H

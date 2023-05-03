@@ -24,15 +24,44 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 QT+= sql
 QT+= charts
+QT+=serialport
+QT+= core gui sql serialport
 CONFIG += c++11
+QT +=sql
+QT += charts
+QT += core gui sql
 
+
+QT += printsupport
+QT += core gui charts
+QT +=serialport
+
+QT += core gui sql printsupport
+
+QT += core gui multimedia multimediawidgets
+
+
+QT += core gui sql serialport
+
+
+QT += svg
+QT += core gui sql axcontainer printsupport network serialport multimedia multimediawidgets charts
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
+QT += core gui sql serialport
+QT += serialport
+QT += charts
 SOURCES += \
+    arduino.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     seance.cpp
 
 HEADERS += \
+    arduino.h \
         mainwindow.h \
     connection.h \
     seance.h

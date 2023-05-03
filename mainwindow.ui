@@ -406,8 +406,22 @@ QPushButton:pressed{
        <pixmap>../background.png</pixmap>
       </property>
      </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>120</y>
+        <width>47</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
      <zorder>label_3</zorder>
      <zorder>groupBox</zorder>
+     <zorder>label_9</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -816,7 +830,7 @@ background-color:white;
      <x>0</x>
      <y>0</y>
      <width>1032</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

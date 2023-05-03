@@ -12,6 +12,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 {
     ui->setupUi(this);
+    int ret=A.connect_arduino();
+      switch(ret){
+      case(0):qDebug()<<"arduino is available and connected to : "<<A.getarduino_port_name();
+      break;
+      case(1):qDebug()<<"arduino is available but not connected to :"<<A.getarduino_port_name();
+      break;
+      case(-1):qDebug()<<"arduino is not available";
+      }
+      QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
     QSqlQueryModel *model=new QSqlQueryModel();
         QSqlQuery query;
         query.prepare("select ID_EXPERT from EXPERTS");
@@ -273,3 +282,73 @@ ui->tableView_2->setColumnWidth(0, 130);
 
 
 }
+void MainWindow::update_label()
+{
+    QByteArray data = A.read_from_arduino();
+    if (!data.isEmpty())
+    {
+        QString str = QString::fromUtf8(data);
+        QSqlQuery query;
+        query.prepare("SELECT nom FROM carte WHERE id = :num");
+        query.bindValue(":num", str);
+
+
+        if (query.exec() && query.next())
+        {QString nom = query.value(0).toString();
+  qDebug() << nom;
+            QSqlQuery admin;
+            admin.prepare("SELECT nom FROM admins WHERE nom = :nom");
+            admin.bindValue(":nom", nom);
+            QSqlQuery expert;
+            expert.prepare("SELECT specialite FROM experts WHERE nom = :nom");
+            expert.bindValue(":nom", nom);
+expert.exec();
+expert.next();
+                QString role = expert.value(0).toString();
+                qDebug() << role;
+
+
+
+
+         if (admin.exec() && admin.next())
+            {
+                // Concatenate 'nom' and 'role' into a single string
+                QString message = "Admin " + nom;
+
+                // Convert the message to a QByteArray
+                QByteArray messageBytes = message.toUtf8();
+
+                // Send the message to the Arduino
+                A.write_to_arduino(messageBytes);
+
+                ui->label_9->setText(message);
+            } else {
+
+             QString message = role+" " + nom;
+
+                // Convert the message to a QByteArray
+                QByteArray messageBytes = message.toUtf8();
+
+                // Send the message to the Arduino
+                A.write_to_arduino(messageBytes);
+ ui->label_9->setText(message);
+
+            }
+
+
+        }
+        else
+        {
+            // N.notification_fermeture();
+            ui->label_9->setText("Utilisateur non trouvé");
+            QString message1 = "locked";
+
+            // Convert the message to a QByteArray
+            QByteArray messageBytes1 = message1.toUtf8();
+
+            // Send the message to the Arduino
+            A.write_to_arduino(messageBytes1);
+        }
+    }
+}
+
