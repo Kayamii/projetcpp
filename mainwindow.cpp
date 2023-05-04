@@ -43,6 +43,7 @@ void MainWindow::on_pushButton_clicked()
     QString motDePasse = ui->lineEdit_mdp->text();
 
 
+
     QRegularExpression emailRegex("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b", QRegularExpression::CaseInsensitiveOption);
     QRegularExpressionValidator *emailValidator = new QRegularExpressionValidator(emailRegex, this);
     ui->lineEdit_email->setValidator(emailValidator);

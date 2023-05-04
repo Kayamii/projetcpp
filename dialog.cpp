@@ -53,20 +53,7 @@ void Dialog::on_pushButton_clicked()
    QString role=ui->comboBox_role->currentText();
    QString mdp=ui->le_mdp->text();
 
-   /*User U(id,nom,prenom,cin,email,role,mdp);
-   bool test=U.ajouter();
 
-   if (test)
-   {
-       QMessageBox::information(nullptr,QObject::tr("OK"),
-                                QObject::tr("Ajout effectue\n"
-                                "Click Cancel to exit"),QMessageBox::Cancel);
-       ui->tab_users->setModel(U.afficher());
-
-   }
-   else QMessageBox::critical(nullptr,QObject::tr("not OK"),
-                                 QObject::tr("Ajout non effectue\n"
-                                 "Click Cancel to exit"),QMessageBox::Cancel);*/
 
    QRegularExpression emailRegex("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b", QRegularExpression::CaseInsensitiveOption);
        QRegularExpressionValidator *emailValidator = new QRegularExpressionValidator(emailRegex, this);

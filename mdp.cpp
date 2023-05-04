@@ -36,6 +36,7 @@ void mdp::on_pushButton_clicked()
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
     }
+    close();
 
 
 }
