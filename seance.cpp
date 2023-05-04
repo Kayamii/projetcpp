@@ -81,10 +81,10 @@ QSqlQueryModel * Seance::afficher()
 model->setQuery("select * from SEANCES");
 model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_SEANCE"));
 model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID_EXP"));
-model->setHeaderData(2,Qt::Horizontal,QObject::tr("ID_EQUI"));
-model->setHeaderData(3,Qt::Horizontal,QObject::tr("DUREE"));
-model->setHeaderData(4,Qt::Horizontal,QObject::tr("DATE"));
-model->setHeaderData(5,Qt::Horizontal,QObject::tr("TYPE"));
+model->setHeaderData(2,Qt::Horizontal,QObject::tr("DUREE"));
+model->setHeaderData(3,Qt::Horizontal,QObject::tr("DATE"));
+model->setHeaderData(4,Qt::Horizontal,QObject::tr("TYPE"));
+model->setHeaderData(5,Qt::Horizontal,QObject::tr("ID_EQ"));
 model->setHeaderData(6,Qt::Horizontal,QObject::tr("HEURE"));
 
 return model;
@@ -124,28 +124,30 @@ bool Seance::verifier(int id)
 }
 QSqlQueryModel * Seance::trier()
 {QSqlQueryModel *model=new QSqlQueryModel();
-    model->setQuery("SELECT * FROM seances ORDER BY date, heure ASC");
+    model->setQuery("SELECT * FROM seances ORDER BY datee, heure ASC");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_SEANCE"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID_EXP"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("DUREE"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("DATE"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("TYPE"));
-    model->setHeaderData(5,Qt::Horizontal,QObject::tr("HEURE"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("ID_EQ"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("HEURE"));
 
     return model;
 }
 QSqlQueryModel * Seance::rechercher(QString r)
 {QSqlQueryModel *model=new QSqlQueryModel();
-    model->setQuery("SELECT * FROM seances WHERE id_seance LIKE '%" + r + "%' OR typee LIKE '%" + r + "%'OR id_expert LIKE '%" + r + "%'   ");
+    model->setQuery("SELECT * FROM seances WHERE id_seance LIKE '%" + r + "%' OR typee LIKE '%" + r + "%'OR id_exp LIKE '%" + r + "%'   ");
 
 
 
-model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_SEANCE"));
-model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID_EXP"));
-model->setHeaderData(2,Qt::Horizontal,QObject::tr("DUREE"));
-model->setHeaderData(3,Qt::Horizontal,QObject::tr("DATE"));
-model->setHeaderData(4,Qt::Horizontal,QObject::tr("TYPE"));
-model->setHeaderData(5,Qt::Horizontal,QObject::tr("HEURE"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_SEANCE"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID_EXP"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("DUREE"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("DATE"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("TYPE"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("ID_EQ"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("HEURE"));
 return model;
 
 

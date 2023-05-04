@@ -95,7 +95,7 @@ void alwayscheck();
 
     void on_pushButton_11_clicked();
 
-    void on_tabWidget_2_currentChanged(int index);
+
 
     void on_pushButton_17_clicked();
 
@@ -112,6 +112,8 @@ void alwayscheck();
     void on_stats_2_clicked();
 
     void on_imp_clicked();
+
+    void on_rechetxt_cursorPositionChanged(int arg1, int arg2);
 
 private:
     Ui::dashboard *ui;

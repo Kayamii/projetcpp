@@ -4,11 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT+= core gui sql
 QT+= sql
 QT += svg
 QT += printsupport
 QT       += core gui charts
+QT       += axcontainer
 QT +=serialport
 
 QT       += core gui sql printsupport

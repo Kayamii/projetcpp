@@ -57,6 +57,9 @@
      <string notr="true">border-radius: 10px;
 background-color: rgb(255, 255, 255);</string>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
@@ -86,6 +89,9 @@ background-color: rgb(255, 255, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
     </property>
    </widget>
   </widget>

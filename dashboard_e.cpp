@@ -117,6 +117,9 @@ dashboard_e::dashboard_e(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView_e->setModel(Etmp.afficher());
+    this->setStyleSheet("background-color: #d3d3d3;");
+    QIcon icon("C:/Users/LEGION/Desktop/studies/qt/Atelier_Connexion/logo.ico");
+    setWindowIcon(icon);
     QSqlQueryModel *model=new QSqlQueryModel();
         QSqlQuery query;
         query.prepare("select ID_EXPERT from EXPERTS");

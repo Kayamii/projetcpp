@@ -31,6 +31,31 @@
       <height>611</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QTabBar::tab {
+    background-color: #cccccc;
+    color: #333333;
+    border: 1px solid #999999;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 4px;
+    min-width: 80px;
+    margin-right: -1px;
+    font-family: Arial, sans-serif; /* change font */
+    font-size: 12px; /* change font size */
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background-color: light green;
+    color: green;
+    border-bottom-color: #ffffff;
+}
+</string>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
@@ -41,142 +66,22 @@
      <widget class="QTabWidget" name="Modifier">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>40</y>
+        <x>10</x>
+        <y>10</y>
         <width>1111</width>
         <height>561</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QWidget
-{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(217, 217, 217, 255),stop:1 rgba(228, 228, 228, 255));
-	color: #000000;
-
-}
-
-
-/*-----QLabel-----*/
-QLabel
-{
-	background-color: transparent;
-	color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(54, 197, 177, 255),stop:1 rgba(11, 135, 111, 255));
-	font-size: 10pt;
-	font-weight: bold;
-	border-color: #000000;
-
-}
-
-
-/*-----QToolButton-----*/
-QToolButton
-{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
-	color: #fff;
-	font-size: 12pt;
-	border-radius: 4px;
-	padding: 10px;
-
-}
-
-
-QToolButton::pressed
-{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(54, 197, 177, 255),stop:1 rgba(11, 135, 111, 255));
-
-}
-
-
-/*-----QTabWidget-----*/
-QTabBar::tab 
-{
-	font-size: 8pt;
-	font-weight: bold;
-	width: 80px;
-    border: 1px solid #444;
-    padding-top: 3px;
-    padding-bottom: 2px;
-    margin-right: -1px;
-
-}
-
-QTabWidget::pane 
-{
-    border: 1px solid qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));;
-
-}
-
-QTabBar::tab:last
-{
-    margin-right: 0; 
-
-}
-
-QTabBar::tab:first:!selected
-{
-	margin-left: 0px; 
-
-}
-
-QTabBar::tab:!selected
-{
-    color: #000;
-    margin-top: 3px;
-    background-color: #f6f6f6;
-
-}
-
-QTabBar::tab:selected
-{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(54, 197, 177, 255),stop:1 rgba(11, 135, 111, 255));
-	color: #fff;
-
-}
-
-QTabBar::tab:!selected:hover
-{
-    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
-
-}
-QCalendarWidget QWidget#qt_calendar_calendarview {
-    background-color: white;
-}
-QPushButton{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
-
-}
-QPushButton::default{
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(44, 187, 167, 255),stop:1 rgba(1, 125, 101, 255));
-
-}
-QPushButton:hover{
-background-color: light green;
-
-}
-QPushButton:pressed{
-	
-}</string>
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
         <string>afficher</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>60</y>
-          <width>371</width>
-          <height>391</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Modifier/Supprimer</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
@@ -206,7 +111,29 @@ QPushButton:pressed{
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
         </property>
         <property name="text">
          <string>pdf</string>
@@ -217,9 +144,15 @@ QPushButton:pressed{
          <rect>
           <x>590</x>
           <y>10</y>
-          <width>141</width>
+          <width>191</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string/>
@@ -235,7 +168,29 @@ QPushButton:pressed{
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
         </property>
         <property name="text">
          <string>tri</string>
@@ -244,19 +199,19 @@ QPushButton:pressed{
        <widget class="QTableView" name="tableView">
         <property name="geometry">
          <rect>
-          <x>390</x>
-          <y>50</y>
+          <x>250</x>
+          <y>70</y>
           <width>611</width>
           <height>381</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+        </property>
        </widget>
-       <zorder>label_7</zorder>
-       <zorder>groupBox_5</zorder>
-       <zorder>pdf</zorder>
-       <zorder>rechetxt</zorder>
-       <zorder>tri_2</zorder>
-       <zorder>tableView</zorder>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -288,7 +243,29 @@ QPushButton:pressed{
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
         </property>
         <property name="text">
          <string>ajouter</string>
@@ -383,7 +360,10 @@ QPushButton:pressed{
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
          </property>
         </widget>
         <widget class="QComboBox" name="id_exp">
@@ -396,7 +376,10 @@ QPushButton:pressed{
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
          </property>
         </widget>
         <widget class="QLabel" name="label">
@@ -425,7 +408,10 @@ QPushButton:pressed{
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="maximumTime">
           <time>
@@ -462,7 +448,10 @@ QPushButton:pressed{
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="dateTime">
           <datetime>
@@ -511,7 +500,10 @@ QPushButton:pressed{
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
          </property>
          <item>
           <property name="text">
@@ -532,6 +524,28 @@ QPushButton:pressed{
            <width>151</width>
            <height>31</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>310</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>ID_equi</string>
          </property>
         </widget>
        </widget>
@@ -568,6 +582,12 @@ background-color:white;
           <height>81</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+        </property>
        </widget>
        <widget class="QTableView" name="tableView_3">
         <property name="geometry">
@@ -577,6 +597,12 @@ background-color:white;
           <width>251</width>
           <height>81</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </widget>
@@ -589,7 +615,7 @@ background-color:white;
      <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
        <rect>
-        <x>-10</x>
+        <x>20</x>
         <y>0</y>
         <width>1121</width>
         <height>581</height>
@@ -611,15 +637,46 @@ background-color:white;
           <height>301</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+        </property>
        </widget>
        <widget class="QPushButton" name="pushButton">
         <property name="geometry">
          <rect>
           <x>30</x>
           <y>450</y>
-          <width>251</width>
+          <width>261</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
         </property>
         <property name="text">
          <string>TRIER PAR ORDRE ALPHABETIQUE</string>
@@ -634,6 +691,31 @@ background-color:white;
           <height>31</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
+        </property>
         <property name="text">
          <string>CONVERTIR EN PDF</string>
         </property>
@@ -646,6 +728,12 @@ background-color:white;
           <width>113</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_22">
@@ -691,6 +779,12 @@ background-color:white;
           <height>22</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+        </property>
        </widget>
        <widget class="QTableView" name="tableView_im">
         <property name="geometry">
@@ -700,6 +794,12 @@ background-color:white;
           <width>661</width>
           <height>271</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="imageimage">
@@ -764,7 +864,10 @@ background-color:white;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F6F1E9;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QTableView" name="tableView_4">
@@ -777,7 +880,10 @@ background-color:white;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F6F1E9;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QPushButton" name="Tri">
@@ -836,7 +942,9 @@ background-color:white;
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_qr">
@@ -883,7 +991,10 @@ background-color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F6F1E9;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_42">
@@ -940,7 +1051,10 @@ background-color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F6F1E9;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_44">
@@ -975,13 +1089,16 @@ background-color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F6F1E9;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>Page</string>
+        <string>Ajouter</string>
        </attribute>
        <widget class="QLabel" name="label_28">
         <property name="geometry">
@@ -1020,7 +1137,9 @@ background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="le_age">
@@ -1034,7 +1153,9 @@ background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_32">
@@ -1061,7 +1182,9 @@ background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pb_ajouter">
@@ -1072,6 +1195,31 @@ background-color: rgb(255, 255, 255);</string>
           <width>101</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
         </property>
         <property name="text">
          <string>Ajouter</string>
@@ -1101,7 +1249,9 @@ background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_31">
@@ -1128,7 +1278,9 @@ background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </widget>
@@ -1148,7 +1300,7 @@ background-color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_18">
        <attribute name="title">
@@ -1157,7 +1309,7 @@ background-color: rgb(255, 255, 255);</string>
        <widget class="QPushButton" name="supp">
         <property name="geometry">
          <rect>
-          <x>640</x>
+          <x>540</x>
           <y>450</y>
           <width>161</width>
           <height>41</height>
@@ -1166,16 +1318,13 @@ background-color: rgb(255, 255, 255);</string>
         <property name="styleSheet">
          <string notr="true">QPushButton
 
-
 {
-	
-	background-color: rgb(224,42,38);
+	background-color: rgb(72, 78, 86);
 	border-style: outset;
     border-width: 2px;
-    border-radius:20px;
+    border-radius:10px;
     border-color: beige;
-  
-font: 81 10pt &quot;Rockwell Extra Bold&quot;;
+    font: bold 14px;;
     padding: 6px;
 	color: rgb(255, 255, 255);
 
@@ -1184,7 +1333,7 @@ font: 81 10pt &quot;Rockwell Extra Bold&quot;;
 QPushButton:hover
 
 {
-	background-color: rgb(106, 227, 231);
+	background-color: lightgreen;
 	color: rgb(0, 0, 0);
 	gridline-color: rgb(94, 118, 255);
 }
@@ -1198,7 +1347,7 @@ QPushButton:pressed</string>
        <widget class="QLabel" name="label_45">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>470</x>
           <y>0</y>
           <width>271</width>
           <height>51</height>
@@ -1228,15 +1377,15 @@ QPushButton:pressed</string>
        <widget class="QLineEdit" name="id_2">
         <property name="geometry">
          <rect>
-          <x>500</x>
+          <x>370</x>
           <y>60</y>
           <width>231</width>
           <height>41</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-radius: 20px;
-background-color: rgb(0,0,0);
+         <string notr="true">border-radius: 10px;
+background-color: grey;
 color: rgb(255, 255, 255);
 alternate-background-color: rgb(255, 255, 255);</string>
         </property>
@@ -1250,7 +1399,7 @@ alternate-background-color: rgb(255, 255, 255);</string>
        <widget class="QPushButton" name="pushButton_7">
         <property name="geometry">
          <rect>
-          <x>490</x>
+          <x>390</x>
           <y>450</y>
           <width>131</width>
           <height>41</height>
@@ -1263,10 +1412,9 @@ alternate-background-color: rgb(255, 255, 255);</string>
 	background-color: rgb(72, 78, 86);
 	border-style: outset;
     border-width: 2px;
-    border-radius:20px;
+    border-radius:10px;
     border-color: beige;
-  
-font: 81 10pt &quot;Rockwell Extra Bold&quot;;
+    font: bold 14px;;
     padding: 6px;
 	color: rgb(255, 255, 255);
 
@@ -1275,7 +1423,7 @@ font: 81 10pt &quot;Rockwell Extra Bold&quot;;
 QPushButton:hover
 
 {
-	background-color: rgb(106, 227, 231);
+	background-color: lightgreen;
 	color: rgb(0, 0, 0);
 	gridline-color: rgb(94, 118, 255);
 }
@@ -1289,11 +1437,36 @@ QPushButton:pressed</string>
        <widget class="QPushButton" name="pushButton_8">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>280</x>
           <y>450</y>
           <width>101</width>
           <height>41</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
         </property>
         <property name="text">
          <string>pdf</string>
@@ -1302,30 +1475,31 @@ QPushButton:pressed</string>
        <widget class="QTableView" name="tableView_9">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>260</x>
           <y>110</y>
           <width>621</width>
           <height>321</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-radius: 20px;
-background-color: rgb(255, 255, 255);
-</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="id_supp">
         <property name="geometry">
          <rect>
-          <x>820</x>
+          <x>720</x>
           <y>450</y>
           <width>161</width>
           <height>41</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-radius: 20px;
-background-color: rgb(0,0,0);
+         <string notr="true">border-radius: 10px;
+background-color: grey;
 color: rgb(255, 255, 255);
 alternate-background-color: rgb(255, 255, 255);</string>
         </property>
@@ -1339,7 +1513,7 @@ alternate-background-color: rgb(255, 255, 255);</string>
        <widget class="QPushButton" name="pushButton_9">
         <property name="geometry">
          <rect>
-          <x>760</x>
+          <x>650</x>
           <y>60</y>
           <width>151</width>
           <height>41</height>
@@ -1352,10 +1526,9 @@ alternate-background-color: rgb(255, 255, 255);</string>
 	background-color: rgb(72, 78, 86);
 	border-style: outset;
     border-width: 2px;
-    border-radius:20px;
+    border-radius:10px;
     border-color: beige;
-
-font: 81 10pt &quot;Rockwell Extra Bold&quot;;
+    font: bold 14px;;
     padding: 6px;
 	color: rgb(255, 255, 255);
 
@@ -1364,7 +1537,7 @@ font: 81 10pt &quot;Rockwell Extra Bold&quot;;
 QPushButton:hover
 
 {
-	background-color: rgb(106, 227, 231);
+	background-color: lightgreen;
 	color: rgb(0, 0, 0);
 	gridline-color: rgb(94, 118, 255);
 }
@@ -1399,11 +1572,17 @@ QPushButton:pressed</string>
        <widget class="QPushButton" name="pushButton_10">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>500</y>
+          <x>20</x>
+          <y>460</y>
           <width>321</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Type des adherants :</string>
@@ -1412,11 +1591,17 @@ QPushButton:pressed</string>
        <widget class="QComboBox" name="comboBox_2">
         <property name="geometry">
          <rect>
-          <x>390</x>
-          <y>500</y>
+          <x>380</x>
+          <y>460</y>
           <width>211</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
         <item>
          <property name="text">
@@ -1456,6 +1641,12 @@ QPushButton:pressed</string>
           <height>391</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_21">
@@ -1471,6 +1662,31 @@ QPushButton:pressed</string>
           <height>28</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+
+{
+	background-color: rgb(72, 78, 86);
+	border-style: outset;
+    border-width: 2px;
+    border-radius:10px;
+    border-color: beige;
+    font: bold 14px;;
+    padding: 6px;
+	color: rgb(255, 255, 255);
+
+}
+
+QPushButton:hover
+
+{
+	background-color: lightgreen;
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(94, 118, 255);
+}
+
+QPushButton:pressed</string>
+        </property>
         <property name="text">
          <string>histo</string>
         </property>
@@ -1483,6 +1699,12 @@ QPushButton:pressed</string>
           <width>601</width>
           <height>301</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </widget>
@@ -1518,11 +1740,10 @@ QPushButton:pressed</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-background-color:#d9c1bb;
-
-
-font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
         <item>
          <property name="text">
@@ -1540,22 +1761,6 @@ font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
          </property>
         </item>
        </widget>
-       <widget class="QLabel" name="label_54">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>-160</y>
-          <width>1251</width>
-          <height>911</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../Downloads/back.png</pixmap>
-        </property>
-       </widget>
        <widget class="QTableView" name="tab_users">
         <property name="geometry">
          <rect>
@@ -1566,11 +1771,10 @@ font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-background-color:#d9c1bb;
-
-
-font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_55">
@@ -1601,7 +1805,9 @@ font: 81 10pt &quot;Rockwell Extra Bold&quot;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border-radius: 10px;
-background-color: rgb(255, 255, 255);</string>
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_13">
@@ -1614,14 +1820,13 @@ background-color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-QPushButton
+         <string notr="true">QPushButton
 
 {
 	background-color: rgb(72, 78, 86);
 	border-style: outset;
     border-width: 2px;
-    border-radius:20px;
+    border-radius:10px;
     border-color: beige;
     font: bold 14px;;
     padding: 6px;
@@ -1632,7 +1837,7 @@ QPushButton
 QPushButton:hover
 
 {
-	background-color: rgb(106, 227, 231);
+	background-color: lightgreen;
 	color: rgb(0, 0, 0);
 	gridline-color: rgb(94, 118, 255);
 }
@@ -1660,13 +1865,6 @@ font: 81 10pt &quot;Rockwell Extra Bold&quot;</string>
          <string>trier</string>
         </property>
        </widget>
-       <zorder>label_54</zorder>
-       <zorder>tri</zorder>
-       <zorder>tab_users</zorder>
-       <zorder>label_55</zorder>
-       <zorder>rech</zorder>
-       <zorder>pushButton_13</zorder>
-       <zorder>label_56</zorder>
       </widget>
       <widget class="QWidget" name="tab_26">
        <attribute name="title">
@@ -1682,11 +1880,10 @@ font: 81 10pt &quot;Rockwell Extra Bold&quot;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-background-color:#d9c1bb;
-
-
-font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
+         <string notr="true">border-radius: 10px;
+background-color: grey;
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QPushButton" name="stats_2">
@@ -1705,7 +1902,7 @@ font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
 	background-color: rgb(72, 78, 86);
 	border-style: outset;
     border-width: 2px;
-    border-radius:20px;
+    border-radius:10px;
     border-color: beige;
     font: bold 14px;;
     padding: 6px;
@@ -1716,7 +1913,7 @@ font: 81 8pt &quot;Rockwell Extra Bold&quot;</string>
 QPushButton:hover
 
 {
-	background-color: rgb(106, 227, 231);
+	background-color: lightgreen;
 	color: rgb(0, 0, 0);
 	gridline-color: rgb(94, 118, 255);
 }
@@ -1743,7 +1940,7 @@ QPushButton:pressed</string>
 	background-color: rgb(72, 78, 86);
 	border-style: outset;
     border-width: 2px;
-    border-radius:20px;
+    border-radius:10px;
     border-color: beige;
     font: bold 14px;;
     padding: 6px;
@@ -1754,7 +1951,7 @@ QPushButton:pressed</string>
 QPushButton:hover
 
 {
-	background-color: rgb(106, 227, 231);
+	background-color: lightgreen;
 	color: rgb(0, 0, 0);
 	gridline-color: rgb(94, 118, 255);
 }

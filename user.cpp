@@ -256,7 +256,7 @@ QString User::envoyer_mail(QString destination) {
 void User::generate_pdf()
   {
 
-    QPdfWriter pdf("C:/Users/Mohamed/Desktop/results/exoprt.pdf");
+    QPdfWriter pdf("C:/Users/LEGION/Desktop/before fucj/seance equippements/exoprt.pdf");
       QPainter painter(&pdf);
       int i = 4000;
       painter.setPen(Qt::red);

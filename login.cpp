@@ -18,11 +18,19 @@
 #include "QSystemTrayIcon"
 #include <QSqlQuery>
 
+
+
+
 login::login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::login)
 {
     ui->setupUi(this);
+    QPixmap pixmap("C:/Users/LEGION/Desktop/before fucj/seance equippements/back_app.PNG");
+    ui->back->setPixmap(pixmap.scaledToHeight(ui->back->height()));
+    QIcon icon("C:/Users/LEGION/Desktop/studies/qt/Atelier_Connexion/logo.ico");
+    setWindowIcon(icon);
+
 }
 
 login::~login()

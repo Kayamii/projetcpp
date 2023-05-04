@@ -115,6 +115,11 @@ dashboard::dashboard(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView_e->setModel(Etmp.afficher());
+
+
+    QIcon icon("C:/Users/LEGION/Desktop/studies/qt/Atelier_Connexion/logo.ico");
+    setWindowIcon(icon);
+
     QSqlQueryModel *model=new QSqlQueryModel();
         QSqlQuery query;
         query.prepare("select ID_EXPERT from EXPERTS");
@@ -143,7 +148,24 @@ dashboard::dashboard(QWidget *parent) :
         ui->tableView_8->setModel(Etmp1.affichert2());
         ui->tableView_6->setModel(Etmp1.affichert3());
         ui->statlayout->addWidget(Etmp1.stat());
+        ui->le_type->setValidator(new QIntValidator(1,4, this));
+        ui->le_age->setValidator(new QIntValidator(1,18, this));
+        ui->le_nom->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
+        ui->le_prenom->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
+        ui->le_sexe->setValidator(new QRegExpValidator(QRegExp("[fmFM]"), this));
+        ui->tableView->setModel(Etmp.afficher());
 
+
+
+        ui->le_type_2->setValidator(new QIntValidator(1,3, this));
+        ui->le_id_2->setValidator(new QIntValidator(1,9999, this));
+        ui->le_age_2->setValidator(new QIntValidator(1,9999, this));
+        ui->le_nom_2->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
+        ui->le_prenom_2->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
+        ui->le_sexe_2->setValidator(new QRegExpValidator(QRegExp("[fmFM]"), this));
+        ui->tableView->setModel(Etmp.afficher());
+
+        //arfaoui
 
         ui->nomEquip->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
         ui->nomEquip_2->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z]+"), this));
@@ -157,16 +179,61 @@ dashboard::dashboard(QWidget *parent) :
         ui->prixEquip->setValidator(new QIntValidator(1,9999, this));
         ui->prixEquip_2->setValidator(new QIntValidator(1,9999, this));
 
-
+       //farouk
         ui->id_seance_5->setValidator(new QIntValidator(1,1000, this));
-
-
             ui->id_exp->setValidator(new QIntValidator(1,200, this));
             ui->type->setValidator(new QRegExpValidator(QRegExp ("[a-zA-Z]+"),this));
             ui->duree->setValidator(new QRegExpValidator(QRegExp ("[0-9][0-9]"),this));
             ui->id_exp_5->setValidator(new QIntValidator(1,200, this));
              // ui->type_5->setValidator(new QRegExpValidator(QRegExp ("[a-zA-Z]+"),this));
             ui->duree_5->setValidator(new QRegExpValidator(QRegExp ("[0-9][0-9]"),this));
+
+
+
+
+
+            QPixmap pixmap("C:/Users/LEGION/Desktop/before fucj/seance equippements/bg.png");
+            ui->back1->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+             ui->back2->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+              ui->back3->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+               ui->back4->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+               ui->back5->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_2->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_3->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_4->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_5->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_6->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+               // ui->back5_7->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_8->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_9->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_10->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_11->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_12->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_13->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+                ui->back5_14->setPixmap(pixmap.scaledToHeight(ui->back1->height()));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -503,6 +570,7 @@ void dashboard::on_btnAjouterEquip_clicked()
             ui->tableView_e->setModel(E.afficher());
 
             QMessageBox::information(nullptr, QObject::tr("Ok"), QObject::tr("Ajout effectue.\nClick Cancel to exit."), QMessageBox::Cancel);
+
         }
         else
         {
@@ -554,6 +622,8 @@ void dashboard::on_btnModifierEquip_clicked()
         }
         if (E.modifier(ID_EQU, image) & test) {
             QMessageBox::information(nullptr, QObject::tr("Ok"), QObject::tr("Modification effectue.\n""Click cancel to exit."), QMessageBox::Cancel);
+            ui->tableView_e->setModel(Etmp.afficher());
+
         }
 }
 
@@ -1213,4 +1283,10 @@ void dashboard::on_stats_2_clicked()
 void dashboard::on_imp_clicked()
 {
     U.generate_pdf();
+}
+
+void dashboard::on_rechetxt_cursorPositionChanged(int arg1, int arg2)
+{
+    QString id=ui->rechetxt->text();
+    ui->tableView->setModel(ss.rechercher(id));
 }
