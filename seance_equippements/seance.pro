@@ -6,6 +6,7 @@
 
 QT       += core gui sql
 QT+= sql
+QT +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +28,7 @@ QT+= charts
 CONFIG += c++11
 
 SOURCES += \
+    arduino.cpp \
     equipements.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -34,6 +36,7 @@ SOURCES += \
     seance.cpp
 
 HEADERS += \
+    arduino.h \
     equipement.h \
         mainwindow.h \
     connection.h \

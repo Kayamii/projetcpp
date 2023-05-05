@@ -7,12 +7,30 @@
 #include <QSqlQuery>
 #include <QTimer>
 #include <QSqlQueryModel>
+#include "arduino.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 
 {
     ui->setupUi(this);
+
+    int ret=A.connect_arduino();
+        switch(ret){
+        case(0):qDebug()<<"arduino is available and connected to : "<<A.getarduino_port_name();
+        break;
+        case(1):qDebug()<<"arduino is available but not connected to :"<<A.getarduino_port_name();
+        break;
+        case(-1):qDebug()<<"arduino is not available";
+        }
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
+
+
+
+
+
+
     QSqlQueryModel *model=new QSqlQueryModel();
         QSqlQuery query;
         query.prepare("select ID_EXPERT from EXPERTS");
@@ -53,7 +71,7 @@ void MainWindow::alwayscheck()
     query.exec();
     QSqlQueryModel *model=new QSqlQueryModel();
           QSqlQuery query3;
-          query3.prepare("select ID_EQU from EQUIPPEMENTS");
+          query3.prepare("select ID_EQU from EQUIPPEMENTS where DUREE_VIE>0");
           query3.exec();
           model->setQuery(query3);
 
@@ -85,6 +103,8 @@ void MainWindow::on_ajouter_5_clicked()
 {
 
   Equipements E;
+
+
         int id_exp = ui->id_exp->currentText().toInt();
         int id_equi = ui->id_equ->currentText().toInt();
         QString type = ui->type->currentText();
@@ -92,9 +112,9 @@ void MainWindow::on_ajouter_5_clicked()
         QString date = ui->date->text();
         QString heure = ui->heure->text();
         Seance ss(id_exp, id_equi, type, duree, date, heure);
-        int ID_EQUIPP = ss.ajouter(); // store the ID_EQUIPP value returned by the ajouter() function
-     int i=  E.checkOutOfStockEquipments();
-        if (ID_EQUIPP >0 && i!=1 ) { // check if the ID_EQUIPP value is valid
+     // int ID_EQUIPP = ss.ajouter(); // store the ID_EQUIPP value returned by the ajouter() function
+   //  int i=  E.checkOutOfStockEquipments(id_equi);
+        if ( id_equi >0 ) { // check if the ID_EQUIPP value is valid
             ui->tableView->setModel(ss.afficher());
             QLayoutItem* item;
             while ((item = ui->stats->takeAt(0)) != nullptr) {
@@ -104,13 +124,53 @@ void MainWindow::on_ajouter_5_clicked()
             ui->stats->addWidget(ss.stats());
             QMessageBox::information(nullptr, QObject::tr("OK"),
                 QObject::tr("ajout avec succès\nClick Cancel to exit"), QMessageBox::Cancel);
-
+E.updateID_SEANCE(id_equi);
             // update ID_SEANCE and duree_vie values in EQUIPPEMENTS table
+            int i = E.checkDureeVie(id_equi);
 
-            E.updateID_SEANCE(id_equi);
+if (i==1) { QMessageBox::information(nullptr, QObject::tr("Warning"), QObject::tr("That was the last one"));}
+           QString message = QString::number(i);
+            if (i==1) {
+
+
+                QSqlQuery query1;
+                            query1.prepare("select NOMEQUIP from EQUIPPEMENTS where id_equ=:num");
+                            query1.bindValue(":num", id_equi);
+                            query1.exec();
+
+                            if (query1.next())
+                            {
+                                QString nom = query1.value(0).toString();
+
+
+                                    qDebug() <<"query.value(0).toString()";
+
+                                        QByteArray nomm = nom.toUtf8();
+
+                                                A.write_to_arduino(nomm);
+
+
+
+               /* QString message = "on ";
+
+                // Convert the message to a QByteArray
+                QByteArray messageBytes = message.toUtf8();
+
+                // Send the message to the Arduino
+                A.write_to_arduino(messageBytes);
+                             }
+
+
+
+                //  QString nom="helloworld";*/
+
+
+
+
 
             // success
             ui->tableView->setModel(ss.afficher());
+
             QMessageBox::information(nullptr, QObject::tr("Ok"), QObject::tr("Ajout effectue.\nClick Cancel to exit."), QMessageBox::Cancel);
         } else {
             // failure
@@ -118,7 +178,7 @@ void MainWindow::on_ajouter_5_clicked()
         }
     }
 
-
+}}
 
 
 
@@ -214,7 +274,7 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
                ui->duree_5->setText(query.value(2).toString());
               // ui->date_5->setDate(query.value(3).toDate());
                 ui->heure_2->setTime(query.value(5).toTime());
-}}
+} }
 
        }
 
@@ -282,7 +342,16 @@ ui->tableView_2->setColumnWidth(0, 130);
     ui->tableView_3->setModel(mod1);
     ui->tableView_3->setColumnWidth(0, 280); // set the width of the first column to 200 pixels
     mod1->setHeaderData(0, Qt::Horizontal, QObject::tr("evenement"));
+}
 
 
+
+void MainWindow::on_pushButton_clicked()
+{  arduino A;
+    A.connect_arduino();
+
+
+    QByteArray data="h";
+    A.write_to_arduino(data);
 
 }

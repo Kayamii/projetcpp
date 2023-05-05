@@ -52,7 +52,7 @@ void setImage (QByteArray image);
               bool updateID_SEANCE(int ID_EQUIPP);
 void setimageLabel(QLabel *);
 
-int checkOutOfStockEquipments();
+int checkDureeVie(int id_equi);
 
 private:
                  QString DUREE_VIE, NOMEQUIP;

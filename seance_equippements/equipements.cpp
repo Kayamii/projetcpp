@@ -9,6 +9,12 @@
 #include <QDebug>
 #include <QLabel>
 #include <QSqlRecord>
+#include <arduino.h>
+
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
+#include <QDebug>
 #include"seance.h"
 Equipements:: Equipements ()
 {
@@ -356,26 +362,35 @@ bool Equipements::updateID_SEANCE(int ID_EQUIPP)
 
     return true;
 }
-int Equipements::checkOutOfStockEquipments() {
-    qDebug() << "Checking for out-of-stock equipment...";
 
-    // prepare query to find out-of-stock equipment
+int Equipements:: checkDureeVie(int ID_EQUIPP)
+{
+
+    // Create a query to get the current value of DUREE_VIE
     QSqlQuery query;
-    query.prepare("SELECT NOMEQUIP FROM EQUIPPEMENTS WHERE DUREE_VIE= 0");
+    arduino A;
 
-    // execute query
+    query.prepare("SELECT DUREE_VIE FROM EQUIPPEMENTS where ID_EQU=:ID_EQUIPP");
+    query.bindValue(":ID_EQUIPP", ID_EQUIPP);
     if (!query.exec()) {
-        qDebug() << "Failed to execute query to check for out-of-stock equipment";
-        return 1;
+        qDebug() << "Error: Could not execute query";
+        qDebug() << query.lastError().text();
+       return 0;
     }
 
-    // display message for each out-of-stock equipment
-    while (query.next()) {
-        QString nomequip = query.value(0).toString();
-        qDebug() << "Out of stock equipment:" << nomequip;
-        QMessageBox::warning(nullptr, QObject::tr("Out of stock"), QObject::tr("The equipment %1 is out of stock.").arg(nomequip));
+    // Check if DUREE_VIE has changed from 1 to 0
+    if (query.next()) {
+        int dureeVie = query.value(0).toInt();
+        if (dureeVie == 0) {
+            return 1;
+         //   QMessageBox() << "That was the last one";
+//QMessageBox::information(nullptr, QObject::tr("Warning"), QObject::tr("That was the last one"));
+        }
+
     }
+    return -1;
 }
+
 
 
 

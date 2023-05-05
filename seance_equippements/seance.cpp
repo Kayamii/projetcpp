@@ -56,13 +56,13 @@ bool Seance::ajouter()
 query.prepare("INSERT INTO SEANCES (id_exp, typee, duree, datee,id_equi,heure) VALUES (:id_exp, :type, :duree, :date, :id_equi, :heure)");
 
 
-
     query.bindValue(":id_exp", id_ex);
     query.bindValue(":duree", duree);
     query.bindValue(":date", datee);
     query.bindValue(":type", typee);
     query.bindValue(":heure", heure);
     query.bindValue(":id_equi", id_equii);
+
 
     return query.exec();
 
